@@ -12,6 +12,7 @@ const home = require("./src/routes/home");
 app.set("views","./src/views");
 app.set("view engine","ejs");
 
+app.use(express.static(`${__dirname}/src/public`)); //${__dirname}현지 디렉토리 이름
 
 app.use("/", home);// use -> 미들웨어  등록 메서드
 
