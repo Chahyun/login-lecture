@@ -3,8 +3,8 @@
 class UserStorage{
    static #users = {
         id : ["test","test1","test2"],
+        userName: ["testn","testn1","testn2"],
         password : ["pass","pass1","pass2"],
-        name: ["testn","testn1","testn2"],
     };
 
     static getUsers(...fields){
@@ -28,7 +28,14 @@ class UserStorage{
         }, {});
         return userInfo;
     }
-    
+
+    static save(userInfo) {
+        const users = this.#users;
+        users.id.push(userInfo.id);
+        users.userName.push(userInfo.userName);
+        users.password.push(userInfo.password);
+        return {success:true};
+    }
 }
 
 module.exports = UserStorage;
