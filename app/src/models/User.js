@@ -16,7 +16,7 @@ class User {
                 } return { success: false, msg: "비밀번호가 일치하지 않습니다." };
             } return { success: false, msg: "존재하는 아이디가 없습니다." };
         }catch(err) {
-            return {success: false, msg: err};
+            return {success: false, err};
         }
         
     }
@@ -27,7 +27,7 @@ class User {
             const response = await UserStorage.save(client);
             return response;
         } catch (err) {
-            return { success: false, msg: err };;
+            return { success: false, err };;
         }
 
     }

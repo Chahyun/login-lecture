@@ -17,10 +17,10 @@ class UserStorage {
 
     static getUserInfo(id) {
         return new Promise((resolve, reject) => {
-            const query = "select * from users where id= ?;"
+            const query = "select * from users where id= ?;";
             db.query(query, [id], (err, data) => {
-                if (err) reject(err);
-                resolve(data[0]);
+                if (err) reject(`${err}`);
+                else resolve(data[0]);
             });
         });
     }
@@ -29,9 +29,8 @@ class UserStorage {
             const query = "insert into users(id, userName, password) values (?, ?, ?);";
             db.query(query, [userInfo.id, userInfo.userName, userInfo.password],
                 (err) => {
-                    console.log(err);
-                    if (err) reject(err);
-                    resolve({ success: true });
+                    if (err) reject(`${err}`);
+                    else resolve({ success: true });
                 });
         });
     }
