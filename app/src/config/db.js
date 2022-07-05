@@ -2,16 +2,15 @@
 const mysql = require("mysql");
 
 const db = mysql.createConnection({
-    host: "users.crgn2ijon2kl.ap-northeast-2.rds.amazonaws.com",
-    user: "admin",
-    port: "3306",
-    password: "tsmtech223",
-    database: "login_lecture",
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    port: process.env.DB_PORT,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
     // debug:true,
 });
 
 db.connect();
 
 module.exports = db;
-
 
